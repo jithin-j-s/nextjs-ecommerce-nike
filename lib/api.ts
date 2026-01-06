@@ -222,11 +222,8 @@ export const api = {
 
   async getNewProducts(): Promise<Product[]> {
     try {
-      console.log('Making API call to:', `${BASE_URL}/new-products/`)
       const response = await secureFetch(`${BASE_URL}/new-products/`)
-      console.log('Response status:', response.status)
       const data = await handleResponse<any>(response)
-      console.log('Raw API response:', data)
       
       // Handle different possible response structures
       let products = []
@@ -238,7 +235,6 @@ export const api = {
         products = data.data
       }
       
-      console.log('Processed products:', products)
       return products.map(sanitizeProduct)
     } catch (error) {
       console.error('API Error:', error)
