@@ -31,12 +31,20 @@ A modern e-commerce application built with Next.js, featuring server-side render
    npm install
    ```
 
-2. **Run the development server**:
+2. **Set up environment variables**:
+   Create a `.env.local` file in the root directory:
+   ```bash
+   NEXT_PUBLIC_API_BASE_URL=https://skilltestnextjs.evidam.zybotechlab.com/api
+   ALLOWED_DOMAINS=skilltestnextjs.evidam.zybotechlab.com
+   ALLOWED_IMAGE_DOMAINS=skilltestnextjs.evidam.zybotechlab.com,localhost
+   ```
+
+3. **Run the development server**:
    ```bash
    npm run dev
    ```
 
-3. **Open your browser** and navigate to `http://localhost:3000`
+4. **Open your browser** and navigate to `http://localhost:3000`
 
 ## Project Structure
 
@@ -114,8 +122,11 @@ A modern e-commerce application built with Next.js, featuring server-side render
 
 ## Environment
 
-The application is configured to work with the provided API base URL:
-`https://skilltestnextjs.evidam.zybotechlab.com/api`
+The application uses environment variables for configuration:
+
+- `NEXT_PUBLIC_API_BASE_URL` - API base URL (default: https://skilltestnextjs.evidam.zybotechlab.com/api)
+- `ALLOWED_DOMAINS` - Comma-separated list of allowed domains for SSRF protection
+- `ALLOWED_IMAGE_DOMAINS` - Comma-separated list of allowed image domains
 
 ## Build for Production
 
