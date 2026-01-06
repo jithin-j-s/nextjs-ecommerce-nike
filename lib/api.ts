@@ -1,8 +1,8 @@
-const BASE_URL = 'https://skilltestnextjs.evidam.zybotechlab.com/api'
+const BASE_URL = process.env.NEXT_PUBLIC_API_BASE_URL || 'https://skilltestnextjs.evidam.zybotechlab.com/api'
 
 // Allowed domains for SSRF protection
-const ALLOWED_DOMAINS = ['skilltestnextjs.evidam.zybotechlab.com']
-const ALLOWED_IMAGE_DOMAINS = ['skilltestnextjs.evidam.zybotechlab.com', 'localhost']
+const ALLOWED_DOMAINS = process.env.ALLOWED_DOMAINS?.split(',') || ['skilltestnextjs.evidam.zybotechlab.com']
+const ALLOWED_IMAGE_DOMAINS = process.env.ALLOWED_IMAGE_DOMAINS?.split(',') || ['skilltestnextjs.evidam.zybotechlab.com', 'localhost']
 
 // URL validation to prevent SSRF
 const validateUrl = (url: string): boolean => {
